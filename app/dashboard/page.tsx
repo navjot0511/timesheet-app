@@ -1,58 +1,114 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { ColumnDef } from "@tanstack/react-table";
+import { DataTable } from "@/components/DataTable";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
+import { Header } from "@/components/Header";
+interface Timesheet {
+  week: number;
+  date: string;
+  status: "COMPLETED" | "INCOMPLETE" | "MISSING";
+}
 export default function DashboardPage() {
   const { data: session, status } = useSession();
+  const [data, setData] = useState<Timesheet[]>([]);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch(`/api/timesheets`);
+      const json = await res.json();
+      setData(json);
+      setLoading(false);
+    }
+    fetchData();
+  }, []);
   if (status === "loading") {
     return <p className="text-center mt-10">Loading...</p>;
   }
 
   if (!session) {
-    router.push("/"); 
+    router.push("/");
     return null;
   }
 
-  // Dummy timesheet data
-  const timesheets = [
-    { week: 29, date: "2026-07-20", status: "Submitted" },
-    { week: 28, date: "2026-07-13", status: "Approved" },
-    { week: 27, date: "2026-07-06", status: "Pending" },
+  const columns: ColumnDef<Timesheet>[] = [
+    { header: "WEEK #", accessorKey: "week" },
+    { header: "DATE", accessorKey: "date" },
+    {
+      header: "STATUS",
+      accessorKey: "status",
+      cell: ({ getValue }) => {
+        const status = getValue() as string;
+        return (
+          <div
+            className={
+              status === "COMPLETED"
+                ? "text-[#03543F] font-semibold bg-[#DEF7EC] px-1 py-1 max-w-fit"
+                : status === "INCOMPLETE"
+                  ? "text-[#723B13]font-semibold bg-[#FDF6B2] px-1 py-1 max-w-fit"
+                  : "text-[#99154B] font-semibold bg-[#FCE8F3] px-1 py-1 max-w-fit"
+            }
+          >
+            {status}
+          </div>
+        );
+      },
+    },
+    {
+      header: "ACTIONS",
+      cell: ({ row }) => {
+        const status = row.original.status;
+
+        if (status === "COMPLETED") {
+          return (
+            // <button
+            //   className="px-2 py-1 text-xs border rounded "
+            //   onClick={() => alert(`Viewing week ${row.original.week}`)}
+            // >
+            //   View
+            // </button>
+            <span className="text-[#1C64F2]">View</span>
+          );
+        }
+
+        if (status === "INCOMPLETE") {
+          return <span className="text-[#1C64F2]">Update</span>;
+        }
+
+        if (status === "MISSING") {
+          return <span className="text-[#1C64F2]">Create</span>;
+        }
+
+        return null;
+      },
+    },
   ];
-
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Timesheet Dashboard</h1>
+    <>
+      <Header />
 
-      <table className="min-w-full border-collapse border border-gray-300">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border border-gray-300 px-4 py-2">Week #</th>
-            <th className="border border-gray-300 px-4 py-2">Date</th>
-            <th className="border border-gray-300 px-4 py-2">Status</th>
-            <th className="border border-gray-300 px-4 py-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {timesheets.map((entry, idx) => (
-            <tr key={idx}>
-              <td className="border border-gray-300 px-4 py-2">{entry.week}</td>
-              <td className="border border-gray-300 px-4 py-2">{entry.date}</td>
-              <td className="border border-gray-300 px-4 py-2">
-                {entry.status}
-              </td>
-              <td className="border border-gray-300 px-4 py-2">
-                <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
-                  Edit
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+      <div className="flex flex-col min-h-screen bg-[#F8F8F8]">
+        <main className="flex-1 px-12 md:px-18 pt-8">
+          <div className="bg-white rounded shadow p-4">
+            <h1 className="text-xl font-semibold mb-4">Your Timesheets</h1>
+            {loading ? (
+              <p>Loading...</p>
+            ) : (
+              <DataTable data={data} columns={columns} />
+            )}
+          </div>
+        </main>
+
+        <div className="flex-1 px-12 md:px-18 pt-8">
+          <footer className="bg-white rounded shadow text-center text-sm px-2 md:px-8 py-8">
+            © 2024 tentwenty. All rights reserved.
+          </footer>
+        </div>
+      </div>
+    </>
   );
 }

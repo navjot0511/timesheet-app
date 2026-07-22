@@ -1,12 +1,24 @@
 // utils/mockData.ts
 export const users = [
-  { id: 1, email: "test@example.com", password: "password123", name: "Test User" }
+  {
+    id: 1,
+    email: "test@example.com",
+    password: "password123",
+    name: "Test User",
+  },
 ];
 
 export const weeklyTimesheets = [
-  { week: 29, date: "2026-07-20", status: "Submitted" },
-  { week: 28, date: "2026-07-13", status: "Approved" },
-  { week: 27, date: "2026-07-06", status: "Pending" },
+  { week: 1, date: "1–5 January, 2024", status: "COMPLETED" },
+  { week: 2, date: "8–12 January, 2024", status: "COMPLETED" },
+  { week: 3, date: "15–19 January, 2024", status: "INCOMPLETE" },
+  { week: 4, date: "22–26 January, 2024", status: "COMPLETED" },
+  { week: 5, date: "28 Jan–1 Feb, 2024", status: "MISSING" },
+  { week: 6, date: "1–5 January, 2024", status: "MISSING" },
+  { week: 7, date: "8–12 January, 2024", status: "INCOMPLETE" },
+  { week: 8, date: "15–19 January, 2024", status: "INCOMPLETE" },
+  { week: 9, date: "22–26 January, 2024", status: "COMPLETED" },
+  { week: 10, date: "28 Jan–1 Feb, 2024", status: "COMPLETED" },
 ];
 
 export const timesheetEntries = {
