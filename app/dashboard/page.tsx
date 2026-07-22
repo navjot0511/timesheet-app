@@ -92,7 +92,7 @@ export default function DashboardPage() {
       <Header />
 
       <div className="flex flex-col min-h-screen bg-[#F8F8F8]">
-        <main className="flex-1 px-12 md:px-18 pt-8">
+        <main className="flex-1 pt-8 mx-auto min-w-[80%]">
           <div className="bg-white rounded shadow p-4">
             <h1 className="text-xl font-semibold mb-4">Your Timesheets</h1>
             {loading ? (
@@ -103,8 +103,8 @@ export default function DashboardPage() {
           </div>
         </main>
 
-        <div className="flex-1 px-12 md:px-18 pt-8">
-          <footer className="bg-white rounded shadow text-center text-sm px-2 md:px-8 py-8">
+        <div className="flex-1 pt-8 mx-auto min-w-[80%]">
+          <footer className="bg-white rounded shadow text-center text-sm px-2  py-8">
             © 2024 tentwenty. All rights reserved.
           </footer>
         </div>
