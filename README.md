@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⏱️ Timesheet Management App
 
-## Getting Started
+A simplified **Timesheet Management Application** built with Next.js, TailwindCSS, and supporting libraries.  
+This project demonstrates a login flow, dashboard with reusable table component, and mock API integration.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Setup Instructions
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Clone the repository**
+   ```bash
+   git clone <repo-url>
+   cd timesheet-app
+   ```
+2. **Install dependencies**
+   npm install
+3. **Run the development server**
+   npm run dev
+4. **Open in browser**
+   Navigate to http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Frameworks & Libraries Used**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next.js – React framework for routing and SSR
 
-## Learn More
+TypeScript – Type safety and maintainability
 
-To learn more about Next.js, take a look at the following resources:
+TailwindCSS – Utility-first styling framework
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Formik + Yup – Form handling and validation (login page)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+next-auth – Authentication (credentials provider, mocked for demo)
 
-## Deploy on Vercel
+TanStack Table – Reusable table component with pagination (dashboard)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Assumptions & Notes**
+Authentication is dummy (no real backend). next-auth is configured for credentials provider but mocked for demo.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Timesheet data is served via a mock API route (/api/timesheets) returning JSON.
+
+Table pagination is client-side using TanStack Table. For production, server-side pagination would be implemented.
+
+Styling follows Tailwind utility classes.
+
+**Time Spent**
+Project setup & configuration: ~2 hour
+
+Login page (Formik + Yup + Tailwind): ~3 hours
+
+Dashboard layout & table component: ~4 hours
+
+Mock API route & integration: ~2 hours
+
+Testing & README documentation: ~1 hour
+
+Total: ~12 hours
