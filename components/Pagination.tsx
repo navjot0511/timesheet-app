@@ -57,7 +57,7 @@ export function Pagination({ table }: PaginationProps) {
         ))}
       </select>
 
-      <div className="flex items-center justify-between mt-4 text-sm text-body">
+      <div className="flex items-center justify-between text-sm text-body">
         <button
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
