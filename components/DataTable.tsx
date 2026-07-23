@@ -7,6 +7,7 @@ import {
   getSortedRowModel,
   flexRender,
   ColumnDef,
+   SortingState,
 } from "@tanstack/react-table";
 import { useState } from "react";
 import { Pagination } from "./Pagination";
@@ -20,7 +21,7 @@ export function DataTable<T extends object>({
   data,
   columns,
 }: DataTableProps<T>) {
-  const [sorting, setSorting] = useState([]);
+  const [sorting, setSorting] =  useState<SortingState>([]);
 
   const table = useReactTable({
     data,
