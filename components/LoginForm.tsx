@@ -108,7 +108,7 @@ export default function LoginPage() {
 
       <div className="w-full md:w-1/2 flex flex-col items-center justify-center px-6 md:px-12 py-8 bg-[#1C64F2] text-white flex-1">
         <div>
-          <h2 className="text-3xl font-bold mb-4">ticktock</h2>
+          <h2 className="text-[40px] font-bold mb-4">ticktock</h2>
           <p className="text-sm md:text-base leading-relaxed">
             Introducing ticktock, our cutting-edge timesheet web application
             designed to revolutionize how you manage employee work hours. With

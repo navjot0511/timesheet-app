@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 interface TimesheetDay {
   date: string;
-  tasks: { id: number; task: string; hours: number, projectName: string; }[];
+  tasks: { id: number; task: string; hours: number; projectName: string }[];
 }
 
 export default function TimesheetPage() {
@@ -29,7 +29,7 @@ export default function TimesheetPage() {
   return (
     <div className="bg-white rounded shadow p-4 mb-4">
       <div className="flex justify-between items-center ">
-        <h1 className="text-xl font-semibold">This week’s timesheet</h1>
+        <h1 className="text-[24px] font-bold">This week’s timesheet</h1>
         <ProgressBar completed={completed} total={total} />
       </div>
       {loading ? (

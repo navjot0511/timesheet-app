@@ -77,7 +77,7 @@ export default function DashboardPage() {
   ];
   return (
     <div className="bg-white rounded shadow p-4">
-      <h1 className="text-xl font-semibold mb-4">Your Timesheets</h1>
+      <h1 className="text-[24px] font-bold mb-4">Your Timesheets</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (

@@ -1,5 +1,5 @@
 "use client";
-
+import { useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Header } from "@/components/Header";
@@ -14,12 +14,17 @@ export default function ProtectedLayout({
 
   const router = useRouter();
 
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.replace("/");
+    }
+  }, [status, router]);
+
   if (status === "loading") {
     return <p className="text-center mt-10">Loading...</p>;
   }
 
   if (!session) {
-    router.push("/");
     return null;
   }
 

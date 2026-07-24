@@ -12,7 +12,7 @@ export function DayColumn({ date, tasks }: DayColumnProps) {
 
   return (
     <div className="flex justify-between  gap-6 mt-2 mb-4">
-      <h3 className="font-semibold text-sm mt-2">{date}</h3>
+      <h3 className="text-lg font-semibold text-sm mt-2">{date}</h3>
       <div className="flex-1 flex-col gap-2">
         {tasks.map((task) => (
           <TaskCard key={task.id} task={task.task} hours={task.hours} projectName={task.projectName} />
