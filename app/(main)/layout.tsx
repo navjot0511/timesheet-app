@@ -3,7 +3,7 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Header } from "@/components/Header";
-import { Footer } from "@/components/footer";
+import { Footer } from "@/components/Footer";
 
 export default function ProtectedLayout({
   children,
