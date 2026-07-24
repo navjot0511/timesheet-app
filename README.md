@@ -1,7 +1,7 @@
 # ⏱️ Timesheet Management App
 
 A simplified **Timesheet Management Application** built with Next.js, TailwindCSS, and supporting libraries.  
-This project demonstrates a login flow, dashboard with reusable table component, and mock API integration.
+This project demonstrates a login flow, weekly timesheet dashboard with reusable table component,timesheet page for week entries and mock API integration.
 
 ---
 
@@ -43,14 +43,14 @@ Table pagination is client-side using TanStack Table. For production, server-sid
 Styling follows Tailwind utility classes.
 
 **Time Spent**
-Project setup & configuration: ~2 hour
+Project setup & configuration with next-auth: ~ 3 hour
 
 Login page (Formik + Yup + Tailwind): ~3 hours
 
-Dashboard layout & table component: ~4 hours
+Dashboard page, timesheet page ,layout & table component: ~6 hours
 
 Mock API route & integration: ~2 hours
 
 Testing & README documentation: ~1 hour
 
-Total: ~12 hours
+Total: ~15 hours
