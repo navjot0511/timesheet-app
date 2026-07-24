@@ -2,16 +2,17 @@
 
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./src/app/**/*/.{js,ts,jsx,tsx}",
+    "./src/components/*/.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        body: "#111928",
-        brandBlue: "#1C64F2",
-        brandButton: "#1A56DB",
+        brandBg: "var(--bg-main)",
+        brandBgSecondary: "var(--bg-secondary)",
+        brandText: "var(--text-main)",
+        brandTextSecondary: "var(--text-secondary)",
+        brandButton: "var(--bg-primary)",
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],

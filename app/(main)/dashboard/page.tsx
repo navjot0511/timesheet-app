@@ -3,19 +3,15 @@
 import { useEffect, useState } from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import { DataTable } from "@/components/DataTable";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { Header } from "@/components/Header";
+
 interface Timesheet {
   week: number;
   date: string;
   status: "COMPLETED" | "INCOMPLETE" | "MISSING";
 }
 export default function DashboardPage() {
-  const { data: session, status } = useSession();
   const [data, setData] = useState<Timesheet[]>([]);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
 
   useEffect(() => {
     async function fetchData() {
@@ -26,14 +22,6 @@ export default function DashboardPage() {
     }
     fetchData();
   }, []);
-  if (status === "loading") {
-    return <p className="text-center mt-10">Loading...</p>;
-  }
-
-  if (!session) {
-    router.push("/");
-    return null;
-  }
 
   const columns: ColumnDef<Timesheet>[] = [
     { header: "WEEK #", accessorKey: "week" },
@@ -88,27 +76,13 @@ export default function DashboardPage() {
     },
   ];
   return (
-    <>
-      <Header />
-
-      <div className="flex flex-col min-h-screen bg-[#F8F8F8]">
-        <main className="flex-1 pt-8 mx-auto min-w-[80%]">
-          <div className="bg-white rounded shadow p-4">
-            <h1 className="text-xl font-semibold mb-4">Your Timesheets</h1>
-            {loading ? (
-              <p>Loading...</p>
-            ) : (
-              <DataTable data={data} columns={columns} />
-            )}
-          </div>
-        </main>
-
-        <div className="flex-1 pt-8 pb-8 mx-auto min-w-[80%]">
-          <footer className="bg-white rounded shadow text-center text-sm px-2  py-8">
-            © 2024 tentwenty. All rights reserved.
-          </footer>
-        </div>
-      </div>
-    </>
+    <div className="bg-white rounded shadow p-4">
+      <h1 className="text-xl font-semibold mb-4">Your Timesheets</h1>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <DataTable data={data} columns={columns} />
+      )}
+    </div>
   );
 }

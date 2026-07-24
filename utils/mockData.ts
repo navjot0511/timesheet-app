@@ -22,12 +22,80 @@ export const weeklyTimesheets = [
 ];
 
 export const timesheetEntries = {
-  29: [
-    { id: 1, day: "Monday", hours: 8 },
-    { id: 2, day: "Tuesday", hours: 7 },
-  ],
-  28: [
-    { id: 3, day: "Monday", hours: 6 },
-    { id: 4, day: "Tuesday", hours: 8 },
+  completed: 20,
+  total: 40,
+  days: [
+    {
+      date: "21 Jan",
+      tasks: [
+        {
+          id: 1,
+          task: "Homepage Development",
+          hours: 4,
+          projectName: "Project Name",
+        },
+      ],
+    },
+    {
+      date: "22 Jan",
+      tasks: [
+        {
+          id: 2,
+          task: "Homepage Development",
+          hours: 4,
+          projectName: "Project Name",
+        },
+        {
+          id: 3,
+          task: "Homepage Development",
+          hours: 4,
+          projectName: "Project Name",
+        },
+      ],
+    },
+    {
+      date: "23 Jan",
+      tasks: [
+        {
+          id: 4,
+          task: "Homepage Development",
+          hours: 4,
+          projectName: "Sample Project 1",
+        },
+      ],
+    },
+    {
+      date: "24 Jan",
+      tasks: [
+        {
+          id: 5,
+          task: "Homepage Development",
+          hours: 4,
+          projectName: "Sample Project 2",
+        },
+      ],
+    },
+    {
+      date: "25 Jan",
+      tasks: [
+        {
+          id: 6,
+          task: "Homepage Development",
+          hours: 4,
+          projectName: "Sample Project 3",
+        },
+      ],
+    },
+    {
+      date: "26 Jan",
+      tasks: [
+        {
+          id: 7,
+          task: "Homepage Development",
+          hours: 4,
+          projectName: "Project Name",
+        },
+      ],
+    },
   ],
 };

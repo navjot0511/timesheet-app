@@ -1,5 +1,3 @@
-"use client";
-
 export function Header() {
   return (
     <header className="flex justify-between items-center px-6 py-4 bg-white shadow min-h-[68px]">

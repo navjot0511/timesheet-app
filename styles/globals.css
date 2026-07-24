@@ -3,6 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --bg-main: #f8f8f8;
+  --text-main: #111928;
+  --bg-secondary: #1c64f2;
+  --bg-primary: #1a56db;
+  --text-secondary: #ffffff;
 }
 
 @theme inline {
@@ -21,5 +26,6 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #111928;
+  color: var(--text-main);
+  background-color: var(--bg-main);
 }
